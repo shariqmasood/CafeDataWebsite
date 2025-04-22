@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Home – Cafe&Wifi{% endblock %}
+{% block content %}
+  <section class="hero">
+    <div class="container text-center">
+      <h1 class="display-3 fw-bold">Discover Your Next Favorite Café</h1>
+      <p class="lead mb-4">
+        Search, add, or remove laptop‑friendly spots with great coffee.
+      </p>
+      <a href="{{ url_for('show_cafes') }}"
+         class="btn btn-primary btn-lg me-2">
+        Browse Cafés
+      </a>
+      <a href="{{ url_for('add_cafe_page') }}"
+         class="btn btn-outline-light btn-lg">
+        Add a Café
+      </a>
+    </div>
+  </section>
+{% endblock %}

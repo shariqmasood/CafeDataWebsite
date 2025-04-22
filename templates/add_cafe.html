@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}AddCafé – Cafe&Wifi{% endblock %}
+{% block content %}
+  <div class="container py-4">
+    <h2 class="mb-4">Add a New Café</h2>
+    <form method="post" class="row g-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" name="name" type="text" class="form-control" required />
+      </div>
+      <div class="col-md-6">
+        <label for="location" class="form-label">Location</label>
+        <input id="location" name="location" type="text" class="form-control" required />
+      </div>
+      <div class="col-md-6">
+        <label for="map_url" class="form-label">Map URL</label>
+        <input id="map_url" name="map_url" type="url" class="form-control" required />
+      </div>
+      <div class="col-md-6">
+        <label for="img_url" class="form-label">Image URL</label>
+        <input id="img_url" name="img_url" type="url" class="form-control" required />
+      </div>
+      <div class="col-md-4">
+        <label for="seats" class="form-label">Seats (e.g., “20–30”)</label>
+        <input id="seats" name="seats" type="text" class="form-control" required />
+      </div>
+      <div class="col-md-4">
+        <label for="coffee_price" class="form-label">Coffee Price</label>
+        <input id="coffee_price" name="coffee_price" type="text" class="form-control" />
+      </div>
+      <div class="col-md-4 d-flex flex-wrap align-items-center">
+        <div class="form-check me-3">
+          <input id="has_toilet" name="has_toilet" class="form-check-input" type="checkbox" />
+          <label class="form-check-label" for="has_toilet">Toilet</label>
+        </div>
+        <div class="form-check me-3">
+          <input id="has_wifi" name="has_wifi" class="form-check-input" type="checkbox" />
+          <label class="form-check-label" for="has_wifi">Wi‑Fi</label>
+        </div>
+        <div class="form-check me-3">
+          <input id="has_sockets" name="has_sockets" class="form-check-input" type="checkbox" />
+          <label class="form-check-label" for="has_sockets">Sockets</label>
+        </div>
+        <div class="form-check">
+          <input id="can_take_calls" name="can_take_calls" class="form-check-input" type="checkbox" />
+          <label class="form-check-label" for="can_take_calls">Calls</label>
+        </div>
+      </div>
+      <div class="col-12 text-end">
+        <button type="submit" class="btn btn-success btn-lg">
+          Add Café
+        </button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

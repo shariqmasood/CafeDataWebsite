@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}AllCafés – Cafe&Wifi{% endblock %}
+{% block content %}
+  <div class="container py-4">
+    <h2 class="mb-4">AllCafés</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for cafe in cafes %}
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="{{ cafe.img_url }}"
+              class="card-img-top"
+              alt="{{ cafe.name }}"
+              style="height:200px; object-fit:cover;"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ cafe.name }}</h5>
+              <p class="text-muted mb-2">📍 {{ cafe.location }}</p>
+              <ul class="list-unstyled small mb-3">
+                <li>💺 Seats: {{ cafe.seats }}</li>
+                <li>🚰 Toilet: {{ 'Yes' if cafe.has_toilet else 'No' }}</li>
+                <li>📶 Wi‑Fi: {{ 'Yes' if cafe.has_wifi else 'No' }}</li>
+                <li>🔌 Sockets: {{ 'Yes' if cafe.has_sockets else 'No' }}</li>
+                <li>📞 Calls: {{ 'Allowed' if cafe.can_take_calls else 'No' }}</li>
+              </ul>
+              <div class="mt-auto d-flex justify-content-between">
+                <a
+                  href="{{ cafe.map_url }}"
+                  class="btn btn-sm btn-outline-primary"
+                  target="_blank"
+                >
+                  View Map
+                </a>
+                <form
+                  action="{{ url_for('delete_cafe_page', cafe_id=cafe.id) }}"
+                  method="post"
+                  onsubmit="return confirm('Delete {{ cafe.name }}?');"
+                >
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="col-12 text-center">
+          <p class="lead">No cafés yet. <a href="{{ url_for('add_cafe_page') }}">
+            Add one now!</a></p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
